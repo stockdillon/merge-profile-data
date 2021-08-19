@@ -1,4 +1,5 @@
-class Team(object):
-    def __init__(self, name="Name"):
-        self.name = name
-        self.test = 'success'
+from ..business_entity import BusinessEntity
+
+class Team(BusinessEntity):
+    def __init__(self, name="Team"):
+        super().__init__(name)
