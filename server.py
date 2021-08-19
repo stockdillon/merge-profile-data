@@ -3,20 +3,29 @@ import socketserver
 import json
 from http.server import BaseHTTPRequestHandler
 from http.server import HTTPServer
-from github import organization
+from github.organization import Organization
+from bitbucket.team import Team
 import urllib
 
-org_pygame = organization.Organization(name='pygame')
-org_mailchimp = organization.Organization(name='mailchimp')
+org_pygame = Organization(name='pygame')
+org_mailchimp = Organization(name='mailchimp')
 orgs = {
     'pygame':org_pygame,
     'mailchimp':org_mailchimp,
 }
 
+team_pygame = Team(name='pygame')
+team_mailchimp = Team(name='mailchimp')
+teams = {
+    'pygame':team_pygame,
+    'mailchimp':team_mailchimp,
+}
+
 class Profile(object):
     def __init__(self, org={}, team={}):
         self.test = 'success'
-        # self.org = org.__dict__
+        self.org = org
+        self.team = team
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -31,9 +40,13 @@ class Handler(BaseHTTPRequestHandler):
         team_name = param_dict.get('bitbucket')[0]
         print('org name:', org_name)
         print('team name:', team_name)
-        prof = Profile()
+        org = {}
+        team = {}
         if org_name in orgs:
-            prof.org = orgs[org_name].__dict__
+            org = orgs[org_name].__dict__
+        if team_name in teams:
+            team = teams[team_name].__dict__            
+        prof = Profile(org, team)
         self.wfile.write(bytes(json.dumps(prof.__dict__), encoding='utf-8'))
 
 
