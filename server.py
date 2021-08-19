@@ -23,13 +23,15 @@ teams = {
 }
 
 class Handler(BaseHTTPRequestHandler):
+    def parse_params(self, path=''):
+        params = urllib.parse.urlparse(path)
+        param_dict = urllib.parse.parse_qs(params.query)
+        return param_dict
     def do_GET(self):
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
         self.end_headers()
-        print(self.path)
-        params = urllib.parse.urlparse(self.path)
-        param_dict = urllib.parse.parse_qs(params.query)
+        param_dict = self.parse_params(self.path)
         print('param_dict:', param_dict)
         org_name = param_dict.get('github')[0]
         team_name = param_dict.get('bitbucket')[0]
