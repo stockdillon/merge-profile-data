@@ -37,14 +37,14 @@ class Handler(BaseHTTPRequestHandler):
         team_name = param_dict.get('bitbucket')[0]
         print('org name:', org_name)
         print('team name:', team_name)
-        org = {}
-        team = {}
+        org = Organization()
+        team = Team()
         if org_name in orgs:
-            org = orgs[org_name].__dict__
+            org = orgs[org_name]
         if team_name in teams:
-            team = teams[team_name].__dict__            
+            team = teams[team_name]
         prof = Profile(org, team)
-        self.wfile.write(bytes(json.dumps(prof.__dict__), encoding='utf-8'))
+        self.wfile.write(bytes(json.dumps(prof.__dict__, default=lambda o: o.__dict__), encoding='utf-8'))
 
 
 PORT = 5000
