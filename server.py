@@ -3,8 +3,9 @@ import socketserver
 import json
 from http.server import BaseHTTPRequestHandler
 from http.server import HTTPServer
-from github.organization import Organization
-from bitbucket.team import Team
+from profiles.github.organization import Organization
+from profiles.bitbucket.team import Team
+from profiles.profile import Profile
 import urllib
 
 org_pygame = Organization(name='pygame')
@@ -20,12 +21,6 @@ teams = {
     'pygame':team_pygame,
     'mailchimp':team_mailchimp,
 }
-
-class Profile(object):
-    def __init__(self, org={}, team={}):
-        self.test = 'success'
-        self.org = org
-        self.team = team
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
