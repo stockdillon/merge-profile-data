@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "91473657-dc77-40f1-839f-4dc7bd7ac290",
+		"name": "divvyDOSE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "Merge pygame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/profile?github=pygame&bitbucket=pygame",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "github",
+									"value": "pygame"
+								},
+								{
+									"key": "bitbucket",
+									"value": "pygame"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Merge mailchimp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/profile?github=mailchimp&bitbucket=mailchimp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "github",
+									"value": "mailchimp"
+								},
+								{
+									"key": "bitbucket",
+									"value": "mailchimp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Merge pygame/mailchimp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/profile?github=mailchimp&bitbucket=pygame",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "github",
+									"value": "mailchimp"
+								},
+								{
+									"key": "bitbucket",
+									"value": "pygame"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
