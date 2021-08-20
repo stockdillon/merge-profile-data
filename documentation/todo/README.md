@@ -1,0 +1,12 @@
+# TODO
+- Auth
+	- Some GitHub details require authentication, complicating our API significantly
+	- Store auth tokens for all services
+- Validation
+	- what happens when fields are missing or invalid?
+- Error Handling
+	- 404 errors when source service cannot locate resource
+	- 500 internal server errors 
+	- meta fields: status, error, message (UI)
+- Add meta data for each class
+    - i.e. `href` for location of resources within our API
