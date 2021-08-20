@@ -1,0 +1,12 @@
+# Approach
+- Determine use cases - what value is the API providing?
+- Determine extensibility needs
+	- Will more sources be added in the future?
+	- Support merging more than 2 organizations OR
+	- Support merging 2 organizations from sources other than GitHub and BitBucket
+- Determine priorities
+    - latency
+	- data freshness - how long can we cache reads for?
+	- How many anticipated requests per second?
+- Do we need to persist profile data, or should data be 
+	- Do we need to allow users to POST to our API and update profile details?
