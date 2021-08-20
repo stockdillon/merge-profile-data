@@ -10,3 +10,11 @@
 	- meta fields: status, error, message (UI)
 - Add meta data for each class
     - i.e. `href` for location of resources within our API
+- Documentation
+    - PEP8 doc strings in classes/functions
+    - OpenAPI yaml definition of API request/respones schemas
+    - UML class hierarchy diagram
+- Visitor pattern for aggregation
+    - One concrete visitor for each aggregated property (e.g. follower count, languages, etc)
+        - Concrete visitor has method for each source type (GitHub Organization, BitBucket Team, etc)
+        - Profile class simple adds or combines the respective properties from each source, after they have accepted the visitors

@@ -10,3 +10,4 @@
 	- how many anticipated requests per second?
 - Do we need to persist profile data?
 	- Do we need to allow users to POST to our API and update profile details?
+- How would we handle pagination for merged collections?
